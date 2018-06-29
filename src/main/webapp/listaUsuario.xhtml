@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="principal.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formul">
+		<p:growl id="messa"/>
+			<p:outputLabel style="margin-left:20px; font-size:20px !important;; border-bottom:4px solid blue; color:#e57373">Lista de Usuarios</p:outputLabel>
+			<p:panel  toggleTitle="asdas" style="margin:20px; box-shadow: 0px 5px 12px gray;">
+					<p:dataTable id="tableId" 
+				paginator="true" rows="8"
+				paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" rowsPerPageTemplate="4,8,12,16" value="#{usuarioBean.lista()}" var="listas" emptyMessage="Nenhuma Usuario">
+
+				<p:column headerText="Codigo" sortable="true"
+					>
+					<h:outputText value="#{listas.codigo}"/>
+				</p:column>
+				<p:column headerText="Nome" sortable="true"
+					>
+					<h:outputText  value="#{listas.nome}" />
+				</p:column>
+				<p:column headerText="Contacto" sortable="true"
+					>
+					<h:outputText value="#{listas.contacto}"/>
+				</p:column>
+				<p:column headerText="Senha" sortable="true"
+					>
+					<h:outputText value="#{listas.senha}"/>
+				</p:column>
+				
+				<p:column headerText="Opcoes" width="120">
+					<center id="cnt">
+						<p:commandButton icon="ui-icon-trash"  ajax="true" 
+							 styleClass="accoes" actionListener="#{usuarioBean.excluir}" update=":formul:messa :formul:tableId">
+							 
+							 <p:confirm header="Confirmacao" message="Deseja Excluir" icon="ui-icon-alert"/>
+							<f:attribute name="usuarioSelecionado" value="#{listas}"/>
+
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-pencil"  ajax="true"
+							 styleClass="accoes" immediate="true" style="margin-left:10px !important;">
+							<f:setPropertyActionListener value=""
+								target="" />
+
+						</p:commandButton>
+						
+					</center>
+
+
+				</p:column>
+
+			</p:dataTable>
+			
+			<p:confirmDialog global="true">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+			
+<p:commandButton value="Nao" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>			
+			
+			</p:confirmDialog>
+
+
+
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

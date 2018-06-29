@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="principal.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+		
+		<p:outputLabel
+				style="margin-left:20px; font-size:20px !important;; border-bottom:4px solid blue; color:#e57373">Preco</p:outputLabel>
+			
+			<p:panel style="margin:20px; box-shadow: 0px 5px 12px gray;">
+
+				<h:form id="formulario">
+					<p:growl id="suces" sticky="true" />
+					<div class="input-field col s12">
+						<p:inputText id="input_text"
+							value="#{precoBean.preco.tipoServico}" required="true"
+							requiredMessage="Preenche o servico" />
+						<label for="input_text">Tipo de Servico </label>
+						<p:message id="desc" for="input_text" />
+					</div>
+					<div class="input-field col s12">
+						<p:inputText id="entidade" value="#{precoBean.preco.descricao}"
+							required="true" requiredMessage="Informe a Entidade" />
+						<label for="entidade">Entidade </label>
+						<p:message id="ent" for="entidade" />
+					</div>
+					<div class="input-field col s12">
+						<p:inputMask mask="99- 99" value="#{precoBean.preco.tempo}"
+							id="contacto" required="true"
+							requiredMessage="Informe o contacto" />
+						<label for="contacto">Duracao</label>
+						<p:message for="contacto" id="temp" />
+						
+					</div>
+					<div class=" col s12">
+						<p:selectOneRadio value="#{precoBean.preco.cronometro}"
+							required="true" requiredMessage="Informe o contacto" title="ff"
+							style="width:200px;" filter="true" styleClass="browser-default">
+
+							<f:selectItem itemLabel="Segundo" itemValue="segundo" />
+							<f:selectItem itemLabel="Minuto" itemValue="minuto" />
+
+						</p:selectOneRadio>
+
+
+
+					</div>
+
+					<div class="col s12">
+						<label for="preco">Preco</label>
+						<p:inputNumber id="preco" value="#{precoBean.preco.preco}"
+							required="true" requiredMessage="Informe o preco" />
+
+						<p:message id="prec" for="preco" />
+					</div>
+
+
+
+
+
+
+					<p:commandButton
+						style="color:red; background:white; height:30px; margin:11px;"
+						value="Registar" actionListener="#{precoBean.salvar}" icon="fa fa-fw fa-save"
+						update="@form:suces @form:temp @form:prec @form:ent @form:desc @form:temp" />
+					<p:commandButton
+						style="color:red; background:white; height:30px; margin:11px;"
+						value="Listar" icon="fa fa-fw fa-list" immediate="true" ajax="true" action="#{precoBean.listarP()}"
+						update="@form:suces @form:temp @form:prec @form:ent @form:desc @form:temp" />
+				</h:form>
+
+
+
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

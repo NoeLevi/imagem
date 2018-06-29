@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+	<title><ui:insert name="titulo">CPS Imagem</ui:insert></title>
+	<link rel="stylesheet" href="resources/css/fontawesome-all.css"
+		type="text/css" />
+	<h:outputStylesheet name="materialize.css" library="css"
+		media="screen,projection" />
+	<link href="resources/css/estilo.css" rel="stylesheet" />
+	<h:outputStylesheet name="style.css" library="css" rel="stylesheet"
+		media="screen,projection" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+</h:head>
+
+<h:body id="home" class="scrollspy  lighten-3"
+	style="background: #e8eaf6 !important;">
+
+	<div class="navbar-fixed">
+		<nav class="red ">
+			<div class="container">
+				<div class="nav-wrapper">
+					<a href="#" class="brand-logo" style="padding-top: 10px;"><img
+						src="resources/img/logo.png" width="70px" /></a> <a href="#"
+						data-target="mobile-nav" class="sidenav-trigger"> <i
+						class="material-icons">menu</i>
+					</a>
+					<ul class="right hide-on-med-and-down ">
+						<li><a href="#home" class="menusItem white-text">Home</a></li>
+						<li><a href="#galeria" class="menusItem white-text">Galeria</a></li>
+						<li><a href="#servico" class="menusItem white-text">Serviços</a></li>
+
+						<li><a href="#contacto" class="menusItem white-text">Contacto</a></li>
+
+						<li><a href="#contacto" class="menusItem white-text">Quem
+								Somos</a></li>
+
+
+
+					</ul>
+
+				</div>
+
+			</div>
+		</nav>
+	</div>
+	<ul class="sidenav" id="mobile-nav">
+		<li><a href="#home">Home</a></li>
+		<li><a href="#galeria">Galeria</a></li>
+		<li><a href="#servico">Servicos</a></li>
+		<li><a href="#procurar">Procurar</a></li>
+		<li><a href="#contacto">Contacto</a></li>
+
+	</ul>
+	<!--Section:Slider  -->
+
+	<div class="row ">
+		<div class="col s9 m9 tirarBorda">
+			<section class="slider">
+				<ul class="slides">
+
+					<li><img src="resources/img/cps.jpg"
+						style="height: 590px !important;"></img> <!-- random image -->
+						<div class="caption center-align">
+							<h3></h3>
+							<h5 class="hide-on-small-only light grey-text text-lighten-3">
+							</h5>
+						</div></li>
+
+
+				</ul>
+			</section>
+		</div>
+
+		<div class="col s3 m3 blue white-text"
+			style="padding-top: 10px !important; height: 470px !important;">
+			<div class="col s12 center center-align red-text"
+				style="font-size: 25px !important; border-bottom: 3px Solid white">
+				<img src="resources/img/mbira.png" height="180"></img>
+			</div>
+
+			<span style="font-weight: bold;" class=""><span class="red-text">M</span>birra</span> é uma
+			plataforma para publicação do seu Spot sem a necessidade de
+			desloca-se do seu local de trabalho ou sua casa.<br></br> <br></br> <br></br>
+			Garante os seus <span class="white-text"
+				style="font-size: 15px; font-weight: bold !important; border: none !important; background: none;"><span class="blinking">5
+				% de desconto</span></span> ao encomendar ser spot.
+
+			<div class="row center center-align"
+				style="margin-top: 30px !important;">
+
+
+				<a class="red white-text z-depth-2 blinking blue-text" href="/login"
+					style="font-size: 22px !important; padding: 5px !important; border-radius: 5px !important; width: 100px !important; height: 33px !important;">Click
+					Aqui para Acessar</a>
+
+
+			</div>
+
+
+
+
+
+
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col s9 m9">
+			<section id="servico" class="scrollspy section section-popular">
+				<div class="row white">
+					<h4 class="center">
+						<span class="blue-text"> Nossos </span> Serviços
+					</h4>
+					<div class="col s12 m3">
+						<div class="card">
+							<div class="card-image">
+								<img src="resources/img/projecto.png"></img> <span
+									class="card-title blue-text" style="font-weight: bold">
+									Criação de Projectos e Estrategias de Comunicação </span>
+							</div>
+							<div class="card-content red servico">
+								<span class="white z-depth-2"
+									style="padding: 5px !important; border-radius: 3px !important;"><a
+									href="/comunicacao">Ler Mais ...</a></span>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3">
+						<div class="card">
+							<div class="card-image">
+								<img src="resources/img/Bonescps-01.jpg"></img> <span
+									class="card-title red-text" style="font-weight: bold">
+									Activação e Promoção de Marcas </span>
+							</div>
+							<div class="card-content blue servico">
+								<span class="white z-depth-2"
+									style="padding: 5px !important; border-radius: 3px !important;">
+									<a href="/activacao">Ler Mais ...</a>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3">
+						<div class="card">
+							<div class="card-image">
+								<img src="resources/img//agenciamento.png" height="228"></img> <span
+									class="card-title flow-text red-text" style="font-weight: bold">
+									Agenciamento Publicitario </span>
+							</div>
+							<div class="card-content red servico">
+								<span class="white z-depth-2"
+									style="padding: 5px !important; border-radius: 3px !important;">
+									<a href="/agenciamento">Ler Mais ...</a>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col s12 m3">
+						<div class="card">
+							<div class="card-image">
+								<img src="resources/img//web1.jpg" height="228"></img> <span
+									class="card-title flow-text red-text" style="font-weight: bold">Criação
+									e Gestão de Plataformas digitas </span>
+							</div>
+							<div class="card-content blue servico">
+								<span class="white z-depth-2"
+									style="padding: 5px !important; border-radius: 3px !important;"><a
+									href="/plataforma">Ler Mais ...</a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</div>
+		<div class="col s3 m3 tirarBorda">
+			<h4 class="white-text "
+				style="margin-top: 20px !important; margin: 0px !important; padding: 0px !important; border-bottom: 5px solid red">
+				<span class="red" style="border-radius: 5px !important;">
+					Destaque </span>
+			</h4>
+
+			<img src="resources/img/voz.jpg" class="materialboxed responsive-img"
+				style="height: 370px !important; width: 100% !important;"></img>
+
+		</div>
+	</div>
+
+	<section class="section section-follow   blue  white-text center">
+		<div class="container">
+			<div class="row" style="margin: 0px; padding: 0px;">
+				<div class="col s12  ">
+					<p>Siga-nos</p>
+					<a href="#" class="white-text"> <i
+						class="fab fa-facebook fa-3x"></i>
+					</a> <a href="#" class="white-text"> <i
+						class="fab fa-twitter fa-3x"></i>
+
+					</a> <a href="#" class="white-text"> <i
+						class="fab fa-google-plus fa-3x"></i>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+	<div class="row">
+		<div class="col s9">
+
+
+			<section id="galeria" class="section section-galery scrollspy">
+				<h4 class="center">
+					<span class="teal-text">Multimedia </span>
+				</h4>
+
+				<p:accordionPanel activeIndex="1">
+					<p:tab title="Material Grafico">
+						<div class="row">
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-01.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-05.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-04.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-03.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+						</div>
+					</p:tab>
+					<p:tab title="Eventos">
+						<div class="row">
+							<div class="col s12 m3">
+
+								<img alt="Reunião do AMMP"
+									src="resources/img/evento/IMG_0299.JPG"
+									class="materialboxed responsive-img"
+									style="height: 180px !important;"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img/evento/SAM_0043.JPG"
+									class="materialboxed responsive-img"
+									style="height: 180px !important;"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img/evento/IMG_1686.JPG"
+									class="materialboxed responsive-img"
+									style="height: 180px !important;"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img/evento/SAM_0071.JPG"
+									class="materialboxed responsive-img"
+									style="height: 180px !important;"></img>
+							</div>
+						</div>
+
+					</p:tab>
+					<p:tab title="Spot Publicitario">
+						<div class="row">
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-01.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-05.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-04.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-03.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+						</div>
+					</p:tab>
+					<p:tab title="Videos">
+						<div class="row">
+							<div class="col s12 m3">
+								<video width="220"
+									height="250" controls="controls" preload="auto" >
+									<source src="resources/media/davido.mp4" type="video/mp4"></source>
+									<span> Browser nao suporta o formato do video</span>
+									</video>
+								
+
+
+							</div>
+							<div class="col s12 m3">
+								<p:graphicImage value="resources/img//Bonescps-05.jpg"
+									styleClass="materialboxed responsive-img"></p:graphicImage>
+
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-04.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+							<div class="col s12 m3">
+
+								<img alt="" src="resources/img//Bonescps-03.jpg"
+									class="materialboxed responsive-img"></img>
+							</div>
+						</div>
+					</p:tab>
+
+				</p:accordionPanel>
+
+
+
+			</section>
+		</div>
+		<div class="col s3 tirarBorda">
+
+			<h4 class="left white-text col s12" style="">
+				<span class=" red"
+					style="border-bottom: 5px solid red; border-radius: 5px !important;">Projectos
+				</span>
+			</h4>
+
+			<ul style="font-size: 20px !important;">
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">ANAC</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">AMMP</span></li>
+				<li style="margin: 10px !important"><span
+					class="white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">
+						A voz da Criança</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">CEMIRDE</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">Clinica
+						Kamassinga</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">Entrega
+						na Hora</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">Kulima</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">MBirra</span></li>
+				<li style="margin: 10px !important"><span
+					class="white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">Minuto
+						Ambiente</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">Munthi
+						Wa Wina</span></li>
+				<li style="margin: 10px !important"><span
+					class=" white-text blue topico"
+					style="border-radius: 7px !important; padding: 4px !important;">OKNOWSE</span></li>
+			</ul>
+
+		</div>
+	</div>
+
+	<section class="section section-follow   blue  white-text center">
+		<div class="row" style="margin: 0px; padding: 0px;">
+			<div class="col s12  ">
+				<p style="font-size: 22px !important;">Nossos Parceiros</p>
+
+				<p:carousel effect="elasticIn" numVisible="5" circular="true"
+					autoPlayInterval="2000">
+
+					<p:graphicImage value="resources/img/parceiro1.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro2.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+
+					<p:graphicImage value="resources/img/parceiro3.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro4.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro7.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro8.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro9.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro10.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro11.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro12.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro13.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro14.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+
+					<p:graphicImage value="resources/img/parceiro5.jpg"
+						style="height: 100px !important; padding-right: 10px !important" />
+					<p:graphicImage value="resources/img/parceiro6.jpg"
+						style="height: 100px !important; width:200px!important; padding-right: 10px !important" />
+
+				</p:carousel>
+
+
+
+			</div>
+		</div>
+
+	</section>
+
+
+	<section id="contacto" class="section section-contact scrollspy">
+		<div class="container">
+			<div class="row ">
+
+				<div class="col s12 m6 offset-m3">
+
+					<div class="card-panel grey lighten-3">
+						<h5 class="center">Contacte-Nos</h5>
+						<div class="row">
+							<i class="fas fa-phone-volume fa-2x red-text "></i> +258 (84)
+							9277 177 <br></br> <i class="fas fa-envelope fa-2x red-text"></i>
+							cpsimagem@gmail.com
+						</div>
+						<form>
+							<div class="input-field">
+								<input type="text" id="nome"></input> <label for="nome">Nome
+									ou Entidade</label>
+							</div>
+							<div class="input-field">
+								<input type="email" id="email"></input> <label for="email">
+									Seu Email</label>
+							</div>
+							<div class="input-field">
+								<textarea class="materialize-textarea" rows="10" id="texto"></textarea>
+								<label for="texto">Assunto</label>
+							</div>
+							<input type="submit" value="Enviar" class="btn blue darken-4"></input>
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="page-footer red">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">CPS Imagem</h5>
+					<p class="grey-text text-lighten-4">Somos uma equipe de
+						experientes na area de comunicação</p>
+
+
+				</div>
+				<div class="col l3 s12">
+					<h5 class="white-text">Area de Actuação</h5>
+					<ul>
+						<li><a class="white-text" href="#!">Spot Publicitario</a></li>
+						<li><a class="white-text" href="#!">Projectos de
+								comunicação e divulgação de marca</a></li>
+						<li><a class="white-text" href="#!">Desenho Grafico</a></li>
+						<li><a class="white-text" href="#!">Produção de eventos</a></li>
+
+					</ul>
+				</div>
+				<div class="col l3 s12">
+					<h5 class="white-text">Siga nos</h5>
+					<ul>
+						<li><a class="white-text" href="#!">Facebook</a></li>
+						<li><a class="white-text" href="#!">Twiter</a></li>
+						<li><a class="white-text" href="#!">Youtube</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				CopyRight <a class="brown-text text-lighten-3" href="/">Cps
+					Imagem</a>
+			</div>
+		</div>
+	</footer>
+	<script type="text/javascript" src="resources/js/materialize.js"></script>
+
+
+	<script type="text/javascript">
+		//sideNav
+		const
+		sideNav = document.querySelector('.sidenav');
+		M.Sidenav.init(sideNav, {});
+
+		const
+		slider = document.querySelector('.slider');
+		M.Slider.init(slider, {
+			indicators : false,
+			height : 470,
+			transition : 500,
+			interval : 6000
+		});
+
+		const
+		slid = document.querySelector('.slid');
+		M.Slider.init(slid, {
+			indicators : false,
+			height : 150,
+			transition : 500,
+			interval : 6000
+		});
+
+		const
+		ac = document.querySelector('.autocomplete');
+		M.Autocomplete.init(ac, {
+			data : {
+				"Grupo" : null,
+				"individual" : null
+			}
+		});
+
+		//Material boxed
+
+		const
+		mb = document.querySelectorAll('.materialboxed');
+		M.Materialbox.init(mb, {});
+
+		//scrolSpy
+
+		$('.scrollspy').scrollSpy();
+	</script>
+</h:body>
+</html>

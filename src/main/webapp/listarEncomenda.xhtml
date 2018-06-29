@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="principal.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formul">
+		<p:growl id="messa"/>
+			<p:panel header="Lista de Encomendas" style="padding-top:20px !important;">
+
+					<p:dataTable id="tableId" 
+				paginator="true" rows="8"
+				paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" rowsPerPageTemplate="4,8,12,16" value="#{servicoBean.lista()}" var="listas" emptyMessage="Nenhuma Preco">
+
+				<p:column headerText="Codigo" sortable="true"
+					>
+					<h:outputText value="#{listas.codigo}"/>
+				</p:column>
+				<p:column headerText="Servico" sortable="true"
+					>
+					<h:outputText  value="#{listas.servico}" />
+				</p:column>
+				<p:column headerText="Entidade" sortable="true"
+					>
+					<h:outputText value="#{listas.tipo}"/>
+				</p:column>
+				<p:column headerText="Preco" sortable="true"
+					>
+					<h:outputText value="#{listas.duracao}"/> MT
+				</p:column>
+				<p:column headerText="Duracao" sortable="true"
+					>
+					#{listas.duracao}
+				</p:column>
+				
+				<p:column headerText="Opcoes" width="120">
+					<center id="cnt">
+						<p:commandButton icon="ui-icon-trash" 
+							 styleClass="accoes" actionListener="#{precoBean.excluir}" update=":formul:messa :formul:tableId" >
+							 
+							 <p:confirm header="Confirmacao" message="Deseja Excluir" icon="ui-icon-alert"/>
+							<f:attribute name="precoSelecionado" value="#{listas}"/>
+
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-pencil" ajax="true"
+							 styleClass="accoes" action="/registarPreco" update=":formul:messa :formul:tableId">
+							 
+							 <p:confirm header="Confirmacao" message="Deseja Excluir" icon="ui-icon-alert"/>
+							 <p:ajax listener="#{precoBean.actualizar}"/>
+							<f:attribute name="precoSelecionado" value="#{listas}"/>
+
+						</p:commandButton>
+						
+					</center>
+
+
+				</p:column>
+
+			</p:dataTable>
+			
+			<p:confirmDialog  global="true">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+			
+<p:commandButton value="Nao" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>			
+			
+			</p:confirmDialog>
+
+
+
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+	<ui:composition>
+		<h:form>
+			<div class="center  white" style="padding-bottom: 10px !important;">
+				<h:graphicImage library="img" name="logo.png" width="80"
+					style="padding-top:15px !important;" />
+				<h6 style="font-size: 14px; font-weight: 800;"
+					class="black-text center">CPS Imagem</h6>
+
+			</div>
+
+			<p:menu id="menu" toggleable="true"
+				style=" width:100% !important;  background:transparent !important; border:none !important; ">
+				<p:submenu styleClass="tamanhoMenu" label="Encomenda"
+					style="font-size:16px !important; font-weight:800 !important; text-shadow:none; background:#e57373; color:white !important;"
+					icon="fa fa-envelope">
+					<p:menuitem value=" Nova " url="/registarSpot"
+						icon="fa fa-envelope" styleClass="black-text"
+						style="font-size:14px  !important; " />
+					<p:menuitem value=" Lista " url="/listaSpot" icon="fa fa-list"
+						styleClass="black-text" style="font-size:14px  !important; " />
+				</p:submenu>
+				<p:submenu styleClass="tamanhoMenu" label="Preco"
+					style="font-size:16px !important; background:#e57373; text-shadow:none; color:white !important;"
+					icon="fa fa-money-bill-alt">
+					<p:menuitem value=" Novo" url="/registarPreco"
+						icon="fa fa-money-bill-alt" styleClass="black-text"
+						style="font-size:14px  !important; " />
+					<p:menuitem value=" Lista" url="/listarPreco" icon="fa fa-list"
+						styleClass="black-text" style="font-size:14px  !important; " />
+				</p:submenu>
+
+				<p:submenu styleClass="tamanhoMenu" label="Relatorios"
+					style="font-size:16px !important; background:#e57373; color:white !important; text-shadow:none;"
+					icon="fa fa-chart-bar">
+					<p:menuitem value="Usuarios" url="/listaUsuario"
+						icon="fa fa-users" styleClass="black-text a"
+						style="font-size:14px  !important; " />
+						
+					<p:menuitem value="Precos" url="/listarPreco"
+						icon="fa fa-user" styleClass="black-text a"
+						style="font-size:14px  !important; " />
+					<p:menuitem value="Encomendas" url="/listarEncomenda"
+						icon="fa fa-user" styleClass="black-text a"
+						style="font-size:14px  !important; " />
+				</p:submenu>
+			</p:menu>
+
+		</h:form>
+	</ui:composition>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"></meta>
+	<title><ui:insert name="titulo">Venda</ui:insert></title>
+
+	<link rel="stylesheet" href="resources/css/materialize.min.css"
+	type="text/css" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!-- Compiled and minified JavaScript -->
+	
+
+</h:head>
+
+<h:body style="background:#e3f2fd blue lighten-5;">
+
+
+	<div class="container-fluid">
+
+		<div class="row blue white-text"
+			style="margin-left: 35%; margin-right: 35%; margin-top: 13%; margin-bottom: 10%; background: white; box-shadow: 0px 3px 5px gray; padding: 10px;">
+
+			<div class="col s12 center">
+				<h:graphicImage library="img" name="logo.png" width="200" />
+			</div>
+			
+			<h:form id="formulario">
+
+				
+					<div class=" col s12">
+					<label class="white-text" style="font-size: 18px !important;">Usuario
+						:</label> <p:inputText   required="true" requiredMessage="informe o email"  value="#{usuarioBean.usuario.email}" placeholder="Usuario" id="usuario"
+						style="border-radius: 5px !important; height: 35px !important; border: none !important; background: white !important;" />
+				<p:message id="emai" for="usuario"/>
+				</div>
+					
+					 	
+				
+				
+					<div class=" col s12">
+					<label class="white-text" style="font-size: 18px !important;">Senha
+						:</label> 
+						<p:password id="senhas" feedback="true" promptLabel="Vazio"
+						weakLabel="Fraco" goodLabel="Forte" strongLabel="Muito Forte"
+						 required="true" requiredMessage="Informe a senha"
+						inline="true" placeholder="Senha"
+						style="border-radius: 5px !important; height: 35px !important; border: none !important; background: white !important;" />
+					
+						<p:message id="senha" for="senhas"/>
+				</div>
+				
+				<p:commandButton class="red white-text z-depth-1 "  style="background:none !important; font-weight:normal !important;  background:red !important; font-size: 16px !important; padding: 5px !important; border-radius: 5px !important; width: 100px !important; height: 33px !important;" value="Entrar" action="dashboard.xhtml?faces-redirect=true" update="@form:usuario @form:senha @form:emai"/>
+				<p:spacer height="10"/>
+				<a class="red white-text z-depth-2 right" href="/registar"
+					style="font-size: 16px !important; padding: 5px !important; border-radius: 5px !important; width: 100px !important; height: 33px !important;">Registar-se</a>
+
+			</h:form>
+		</div>
+	</div>
+	<script>
+
+	  $(document).ready(function() {
+	    $('input#input_text, textarea#textarea2').characterCounter();
+	  });
+	        
+	</script>
+		<script type="text/javascript" src="resources/js/materialize.js"></script>
+	
+</h:body>
+</html>

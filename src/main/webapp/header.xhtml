@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+	<ui:composition>
+		<nav class="white-text blue darken-3 tirarBorda" role="navigation" >
+			<div class="nav-wrapper container" style="margin-left:10px !important; margin-right:10px !important;">
+				<a id="logo-container" href="#" class="brand-logo white-text">
+					<i class="fa fa-bars" aria-hidden="true"></i>
+
+				</a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="/login" class="white-text"><span
+							class="red badge white-text"
+							style="margin: 0px; font-size: 11px; border-radius: 3px;">6
+								Mensagens</span><i class="far fa-envelope"></i></a></li>
+					<li style="padding-top: 10px;"><a href="/login"> <h:graphicImage
+								library="img" name="homem.jpg" width="50"
+								styleClass="white-text white circle" /></a></li>
+					<li><a href="/" class="white-text"><i class="fa fa-power-off"></i></a></li>
+				</ul>
+
+				<ul id="nav-mobile" class="sidenav">
+					<li><a href="#"> Link</a></li>
+				</ul>
+				<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i
+					class="material-icons">menu</i></a>
+			</div>
+		</nav>
+	</ui:composition>
+
+</body>
+
+</html>

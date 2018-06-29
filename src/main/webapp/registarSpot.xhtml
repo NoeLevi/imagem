@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="principal.xhtml">
+
+	<ui:define name="content">
+		<h:form id="fo" styleClass="ui-noborder">
+			<p:outputLabel
+				style="margin-left:20px; font-size:20px !important;; border-bottom:4px solid blue; color:#e57373">Encomenda</p:outputLabel>
+			<p:panel style="margin:20px; box-shadow: 0px 5px 12px gray;">
+				<p:growl id="messa" autoUpdate="true" />
+				<div class="row tirarBorda">
+				<div class="col s12 left"> 	<label style="font-size:16px !important; color:black">Producao / Exibicao </label></div>
+			
+					<div class="col s4">
+					
+						<p:selectOneMenu value="#{servicoBean.servico.tipo}" id="tipos"
+							required="true" requiredMessage="selecione uma das opcoes"
+							style="width:200px !important;" >
+										<f:selectItem itemLabel="Selecione Aqui " itemValue="Selecione Aqui" />
+							
+														<f:selectItem itemLabel="Producao " itemValue="Producao" />
+							
+							<f:selectItem itemLabel="Exibicao " itemValue="Publicidade" />
+							
+							<p:ajax event="itemSelect" partialSubmit="true" update="@form"
+								listener="#{servicoBean.mudarPersonagem}" />
+						</p:selectOneMenu>
+						<p:message for="tipos" id="pro" />
+					</div>
+					
+				</div>
+
+
+				<div class="row tirarBorda" style="margin-top: 10px !important;">
+					<div class="col s12 m4">
+						<label class="col s12 tirarBorda" style="font-size:16px !important; color:black">Servico Pretendido</label>
+						<p:selectOneMenu value="#{servicoBean.servico.servico}" id="tipo"
+							style=" width:200px !important; " required="true"
+							requiredMessage="Selecione uma opcao">
+							<f:selectItem itemLabel="Selecione Aqui" noSelectionOption="true" />
+
+							<f:selectItem itemLabel="Spot de Radio" itemValue="Spot de Radio" />
+							<f:selectItem itemLabel="Spot de TV" itemValue="Spot de TV" />
+							<f:selectItem itemLabel="Anuncio" itemValue="Anuncio" />
+							<f:selectItem itemLabel="Video" itemValue="Video" />
+
+							<p:ajax event="itemSelect" partialSubmit="true" update="@form"
+								listener="#{servicoBean.mudar}" />
+
+						</p:selectOneMenu>
+						<p:message for="tipo" id="tip"></p:message>
+					</div>
+					<div class="col s12 m4">
+						<p:outputLabel class="col s12" value="Formato" rendered="#{servicoBean.isMudaformato()}" style="font-size:16px !important; color:black"/>
+
+
+						<p:selectOneMenu filter="true" required="true"
+							requiredMessage="Informe o formato" rendered="#{servicoBean.isMudaformato()}"
+							value="#{servicoBean.servico.estacao}" id="canal"
+							style="width:200px !important;">
+							<f:selectItem itemLabel="Selecione Aqui" noSelectionOption="true" />
+							<f:selectItems value="#{servicoBean.li}" var="lis"
+								itemValue="#{lis}" itemLabel="#{lis}" />
+
+						</p:selectOneMenu>
+						<p:message for="canal" id="can" />
+
+					</div>
+					
+
+					<div class=" col s12 m4">
+						<p:outputLabel rendered="#{servicoBean.isMudaduracao()}"
+							styleClass=" col s12" value="Tempo do Spot" style="color:black; font-size:16px !important;" id="dura" />
+
+						<p:selectOneMenu value="#{servicoBean.servico.duracao}"
+							rendered="#{servicoBean.isMudaduracao()}" id="duracao"
+							style="width:200px !important;"  styleClass="" required="true"
+							requiredMessage="Informe o tempo">
+							<f:selectItem itemLabel="Selecione Aqui" noSelectionOption="yes" />
+							<f:selectItems value="#{precoBean.lista()}" var="lista"
+								itemLabel="#{lista.tempo } #{lista.cronometro } "
+								itemValue="#{lista.tempo}"/>
+							</p:selectOneMenu>
+						<p:message for="duracao" id="temp" />
+					</div>
+				</div>
+				<div class="row tirarBorda">
+					<div class="col s12 m4">
+						<p:outputLabel rendered="#{servicoBean.isCanal()}"
+							styleClass=" col s12" value="Canal" id="estaca" />
+
+						<p:selectOneMenu rendered="#{servicoBean.isCanal()}"
+							value="#{servicoBean.servico.canal}" id="estacao"
+							style="width:200px !important;" styleClass="" required="true"
+							requiredMessage="Selecione uma opcao" >
+							<f:selectItem itemLabel="Selecione Aqui" noSelectionOption="yes" />
+							<f:selectItems value="#{servicoBean.liCanal}" var="lista"
+								itemLabel="#{lista} " itemValue="#{lista}" />
+						
+								<img src="resources/img/tvm.png" style="width: 40px !important; height:40px !important;" />
+							
+							<p:ajax event="itemSelect" partialSubmit="true" update="@form"
+								listener="#{servicoBean.ativarSelecao}" />
+
+						</p:selectOneMenu>
+						<p:message for="estacao" id="estacaocan" />
+						<p:graphicImage id="imagem" rendered="#{servicoBean.isCanal()}" name="#{servicoBean.getImagem()}" library="img" style="width: 70px !important; height:40px !important;" />
+						
+
+					</div>
+					<div class="col s12 m8">
+
+						<p:inputText rendered="#{servicoBean.isOutro()}"
+							value="#{servicoBean.opcao}" placeholder="Outro"></p:inputText>
+
+					</div>
+					
+					<p:outputLabel class="col s12" value="Coloque a abaixo os detalhes" rendered="#{servicoBean.isMudam()}" style="font-size:16px !important; color:red"/>
+					
+					<div class="col s12" style="margin-top: 20px !important;">
+					
+						<p:outputLabel rendered="#{servicoBean.isMudaradio()}"
+							styleClass=" col s12" value="Radios Comunitarias :" style="font-weight:bold; color: black; border-bottom: 2px solid red" />
+
+
+						<p:selectManyCheckbox filter="true" required="true"
+							requiredMessage="Informe o canal"
+							value="#{servicoBean.servico.estacao}" rendered="#{servicoBean.isMudaradio()}" >
+							<f:selectItems value="#{servicoBean.liradio}" var="lis"
+								itemValue="#{lis}" itemLabel="#{lis}" />
+							<f:ajax  event="select"   
+								listener="#{servicoBean.escolherZona}" />
+							
+
+						</p:selectManyCheckbox>
+						<p:selectOneMenu rendered="#{servicoBean.isMudaradio()}"
+							value="#{servicoBean.servico.canal}" 
+							style="width:200px !important;" styleClass="" required="true"
+							requiredMessage="Selecione uma opcao" >
+							<f:selectItem itemLabel="Selecione Aqui" noSelectionOption="yes" />
+							<f:selectItems value="#{servicoBean.liCanal}" var="lista"
+								itemLabel="#{lista} " itemValue="#{lista}" />
+
+						</p:selectOneMenu>
+						
+					
+					</div>
+
+				</div>
+
+				<div class="row tirarBorda">
+					<div class="col s12 ">
+						<div class="file-field input-field">
+							<div class=" btn blue darken-3"
+								style="background: white !important; color: red;">
+								<span>Anexar Ficheiro</span>
+								<p:inputText type="file" class="col s12"
+									value="#{servicoBean.servico.anexo}" />
+							</div>
+							<div class="file-path-wrapper">
+								<p:inputText value="#{servicoBean.servico.documento}"
+									styleClass="file-path validate" type="text" />
+							</div>
+						</div>
+					</div>
+					
+					<div class="col s12 ">
+						<label>Observacoes:</label>
+						<p:textEditor id="texto" value="#{servicoBean.servico.observacao}" />
+
+					</div>
+					
+				</div>
+
+				<p:spacer height="2" width="100%"
+					style="background:blue !important;" />
+
+				<p:commandButton value="Confirmar o Pedido " icon="fa fa-fw fa-save"
+					style="color:red; background:white; height:30px; margin:11px;"
+					update="can messa pro tip temp duracao dura " ajax="true"
+					action="#{servicoBean.salvar}"
+					onsuccess="M.toast({html: toastHTML,classes: 'blue '})" />
+				<script>
+					var toastHTML = '<span class="blue white-text">Registou com sucesso</span>';
+				</script>
+				<p:commandButton value="Listar Pedido " icon="fa fa-fw fa-list"
+					style="color:red; background:white; height:30px; margin:11px;"
+					immediate="true" action="#{servicoBean.listarP()}" />
+
+				<p:dialog header="Validacao de Encomenda" modal="true"
+					widgetVar="diala" style="width:400">
+					<p:panelGrid>
+						<p:outputLabel value=" Valor Por Pagar: *********" />
+						<br></br>
+							Conta: ************
+							
+						<p:commandButton type="Confirmar" value="Reset" />
+						<p:commandButton value="Cancelar"
+							actionListener="#{bean.addEvent}"
+							oncomplete="PF('diala').hide();" />
+					</p:panelGrid>
+
+				</p:dialog>
+
+
+			</p:panel>
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

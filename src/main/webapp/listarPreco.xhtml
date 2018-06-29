@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="principal.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formul">
+		<p:growl id="messa"/>
+			<p:panel header="Lista de Precos" style="padding-top:20px !important;">
+<p:commandButton action="#{precoBean.novoR}" value="Novo"
+					icon="fa fa-address-book" styleClass="botao" style="color:red; background:white;" immediate="true" />
+					<p:commandButton icon="fa fa-excel" value="Excel" style="color:red; background:white;" styleClass="botao" ajax="false">
+				<p:dataExporter type="csv" target="tableId" fileName="ser" ></p:dataExporter></p:commandButton>
+					<p:dataTable id="tableId" 
+				paginator="true" rows="8"
+				paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				paginatorPosition="bottom" rowsPerPageTemplate="4,8,12,16" value="#{precoBean.lista()}" var="listas" emptyMessage="Nenhuma Preco">
+
+				<p:column headerText="Codigo" sortable="true"
+					>
+					<h:outputText value="#{listas.codigo}"/>
+				</p:column>
+				<p:column headerText="Servico" filterStyle=" border-radius:5px !important; height:22px !important; width:100% !important;" filterBy="#{listas.tipoServico}" sortable="true"
+					>
+					<h:outputText  value="#{listas.tipoServico}" />
+				</p:column>
+				<p:column headerText="Entidade" sortable="true" filterStyle=" border-radius:5px !important; height:22px !important; width:100% !important;" filterBy="#{listas.descricao}"
+					>
+					<h:outputText value="#{listas.descricao}"/>
+				</p:column>
+				<p:column headerText="Preco" sortable="true"
+					>
+					<h:outputText value="#{listas.preco}"/> MT
+				</p:column>
+				<p:column headerText="Duracao" sortable="true"
+					>
+					
+						<h:outputText value="#{listas.tempo} - #{listas.cronometro}"/> 
+				</p:column>
+				
+				<p:column exportable="false"  headerText="Opcoes" width="120">
+					<center id="cnt">
+						<p:commandButton icon="ui-icon-trash" 
+							 styleClass="accoes" actionListener="#{precoBean.excluir}" update=":formul:messa :formul:tableId" >
+							 
+							 <p:confirm header="Confirmacao" message="Deseja Excluir" icon="ui-icon-alert"/>
+							<f:attribute name="precoSelecionado" value="#{listas}"/>
+
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-pencil" ajax="true"
+							 styleClass="accoes" action="/registarPreco" update=":formul:messa :formul:tableId">
+							 
+							 <p:confirm header="Confirmacao" message="Deseja Excluir" icon="ui-icon-alert"/>
+							 <p:ajax listener="#{precoBean.actualizar}"/>
+							<f:attribute name="precoSelecionado" value="#{listas}"/>
+
+						</p:commandButton>
+						
+					</center>
+
+
+				</p:column>
+
+			</p:dataTable>
+			
+			<p:confirmDialog  global="true">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+			
+<p:commandButton value="Nao" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>			
+			
+			</p:confirmDialog>
+
+
+
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

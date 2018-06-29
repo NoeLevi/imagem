@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="principal.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<p:outputLabel
+				style="margin-left:20px; font-size:20px !important;; border-bottom:4px solid blue; color:#e57373"> Todas Encomendas</p:outputLabel>
+<p:commandButton action="#{servicoBean.registar}" value="Nova"
+					icon="fa fa-address-book" styleClass="botao" style="color:red; background:white;" immediate="true" />
+					
+			<p:panel style="margin:20px; box-shadow: 0px 5px 12px gray;">
+
+				<p:dataGrid var="servico" value="#{servicoBean.lista()}" style="background:red !important;" columns="4"
+					rows="5">
+					<p:column>
+						<p:panel header="#{servico.tipo}" >
+							<h:panelGrid columns="1">
+														<h:outputText value="Canal ou Estacao - #{servico.canal}"
+									styleClass="center center-align" />
+								<p:commandButton value="  Observacao" actionListener="#{servicoBean.selecionar}"  icon="fa fa-eye fa-lg"
+									oncomplete="PF('dial').show()" update="dta" styleClass="botao" style="margin-top:0px !important; margin-bottom:0px !important;">
+										<f:attribute value="#{servico.observacao}" name="selecionado"></f:attribute>
+									</p:commandButton>
+								
+								<h:outputText
+									value="Valor a Pagar - #{car.valor_contribuicao}" />
+								
+
+
+
+							</h:panelGrid>
+						</p:panel>
+					</p:column>
+						<p:dialog closeOnEscape="true" fitViewport="true" showEffect="clip"
+				hideEffect="explode" widgetVar="dial"
+				header="Observacoes" closable="true" responsive="true"
+				id="dta" dynamic="true" >
+				#{servicoBean.selecionado}
+
+
+			</p:dialog>
+				</p:dataGrid>
+
+
+
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

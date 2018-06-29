@@ -1,0 +1,113 @@
+
+@CHARSET "ISO-8859-1";
+
+.botao{
+	background:white !important; height:30px !important; margin:11px !important;
+}
+
+.blinking{
+   animation-duration: 520ms;
+   animation-name: blink;
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
+}
+@keyframes blink {
+   0% {
+      opacity: 1;
+   }
+   25% {
+      opacity: 0.8;
+   }
+   50% {
+      opacity: 0.6;
+   }
+   
+   75% {
+      opacity: 0.5;
+   }
+  100% {
+      opacity: 0.2;
+   }
+ }
+.botao:hover {
+	background: red !important;
+	color: white !important;
+}
+.ui-carousel-header{
+	display: none !important;
+}
+.fundo{
+	background-color:#135fd8 !mportant;
+}
+.tirarBorda {
+	border: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.topico:hover{
+	
+	color:red !important;
+	cursor: pointer;
+	
+	background: transparent !important;
+	
+}
+.servico:hover{
+	
+	cursor: pointer;
+		color:blue !important;
+	
+}
+
+.ui-panelmenu-header{
+	background:red !important;
+	padding:50px;
+	color:white;
+		font-size:14px;
+	height: 27px;
+	border:none;
+	font-weight: 100;
+	font-family: verdana;
+}
+.menuOpcao{
+top:78px !important;
+  padding:0px;
+  
+  border-top: none;
+    border-top-color:none;
+    
+  	box-shadow: 0px 2px 2px gray;
+  	border: none;
+  	z-index: 100;
+  
+}
+.ui-widget{
+	
+font-size: 13px !important;	
+}
+.conteudopagina{
+top:82px !important;
+  padding:0px;
+  border: none;
+  
+}
+
+.toast{
+	top:30px !important;
+margin-right: 450px !important;
+border-radius:5px;
+border:2px solid white;
+padding: 10px;
+height: 30px !important;
+	
+}
+.a:hover{
+	font-size: 14px !important;	
+	
+	
+}
+
+.tamanhoMenu{
+font-size:20px !important;
+}
